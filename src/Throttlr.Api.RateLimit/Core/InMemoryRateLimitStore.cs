@@ -31,5 +31,15 @@ namespace Throttlr.Api.RateLimit.Core
             _counters.TryGetValue(key, out var counter);
             return Task.FromResult<RateLimitCounter?>(counter);
         }
+
+        /// <inheritdoc />
+        public Task SetAsync(string key, RateLimitCounter counter,
+            CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            _counters[key] = counter;
+            return Task.CompletedTask;
+        }
     }
 }
