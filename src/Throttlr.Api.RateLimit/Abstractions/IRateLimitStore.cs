@@ -1,13 +1,13 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Throttlr.Api.RateLimit.Core;
+using Throttlr.Api.RateLimit.Core.Counter;
 
 namespace Throttlr.Api.RateLimit
 {
     /// <summary>
     /// Provides persistent storage for rate limiting counters.
     /// </summary>
-    internal interface IRateLimitStore
+    public interface IRateLimitStore
     {
         /// <summary>
         /// Retrieves the current state of a rate limit counter.
