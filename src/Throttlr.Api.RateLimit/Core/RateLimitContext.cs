@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 
-namespace Throttlr.Api.RateLimit.Core
+namespace RateLimit.Throttlr.Core
 {
     /// <summary>
     /// Provides contextual information used for rate limiting decisions.
     /// </summary>
-    internal sealed class RateLimitContext
+    public sealed class RateLimitContext
     {
         /// <summary>
         /// Gets or sets a unique identifier for the request (e.g., client IP, user ID).

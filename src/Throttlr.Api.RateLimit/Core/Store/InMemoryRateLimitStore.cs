@@ -2,8 +2,9 @@
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
+using RateLimit.Throttlr.Core.Counter;
 
-namespace Throttlr.Api.RateLimit.Core
+namespace RateLimit.Throttlr.Core.Store
 {
     /// <summary>
     /// Provides an in-memory implementation of <see cref="IRateLimitStore"/>.

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Throttlr.Api.RateLimit.Core.Counter
+namespace RateLimit.Throttlr.Core.Counter
 {
     /// <summary>
     /// Represents the state of a rate limit counter.
