@@ -1,6 +1,6 @@
-﻿using RateLimit.Throttlr.Core;
+﻿using Throttlr.Api.RateLimit.Core;
 
-namespace RateLimit.Throttlr
+namespace Throttlr.Api.RateLimit
 {
     /// <summary>
     /// Represents a policy that determines how rate limits are applied
