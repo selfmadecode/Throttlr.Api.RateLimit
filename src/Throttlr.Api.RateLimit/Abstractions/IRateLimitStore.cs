@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using RateLimit.Throttlr.Core.Counter;
+using Throttlr.Api.RateLimit.Core.Counter;
 
-namespace RateLimit.Throttlr
+namespace Throttlr.Api.RateLimit
 {
     /// <summary>
     /// Provides persistent storage for rate limiting counters.
