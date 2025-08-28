@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Throttlr.Api.RateLimit.Core;
+using RateLimit.Throttlr.Core;
 
-namespace Throttlr.Api.RateLimit
+namespace RateLimit.Throttlr
 {
     /// <summary>
     /// Defines the contract for a rate limiter implementation.

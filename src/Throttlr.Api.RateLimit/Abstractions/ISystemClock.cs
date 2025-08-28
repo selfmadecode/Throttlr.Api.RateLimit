@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Throttlr.Api.RateLimit.Abstractions
+namespace RateLimit.Throttlr.Abstractions
 {
     /// <summary>
     /// Provides an abstraction for accessing the current UTC system clock.
