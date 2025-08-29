@@ -43,9 +43,7 @@ namespace RateLimit.Throttlr.Core
         }
 
         /// <inheritdoc />
-        /// <inheritdoc />
-        public async Task<RateLimitResult> ShouldLimitAsync(
-            string key,
+        public async Task<RateLimitResult> ShouldLimitAsync(string key,
             CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(key))
