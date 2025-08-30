@@ -84,3 +84,19 @@ namespace DemoAPI.Controllers
 }
 ```
 
+### Behavior:
+
+Each IP (or custom partition key) can only make 5 requests per 10 seconds.
+Exceeding the limit returns HTTP 429 Too Many Requests.
+Standard headers:
+X-RateLimit-Limit: total allowed requests
+X-RateLimit-Remaining: requests left in the current window
+X-RateLimit-Reset: Unix timestamp when window resets
+Retry-After: seconds to wait before next allowed request
+
+## Supported Algorithms
+
+Limiter Type	Description
+FixedWindow	Counts requests per fixed window interval
+SlidingWindow	Smooths counts using weighted previous window
+TokenBucket	Allows bursts and steady refill rate
