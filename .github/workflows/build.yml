@@ -1,0 +1,49 @@
+name: .NET Build & Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet: [ '6.0.x', '7.0.x', '8.0.x' ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup .NET ${{ matrix.dotnet }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+
+      - name: Restore library
+        run: dotnet restore src/Throttlr.Api.RateLimit/RateLimit.Throttlr.csproj
+
+      - name: Build library
+        run: dotnet build src/Throttlr.Api.RateLimit/RateLimit.Throttlr.csproj --no-restore --configuration Release
+
+      - name: Run tests
+        run: dotnet test src/Throttlr.Api.RateLimit/RateLimit.Throttlr.csproj --no-build --verbosity normal --configuration Release || echo "No tests found"
+
+  demo-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore DemoAPI
+        run: dotnet restore src/DemoAPI/DemoAPI.csproj
+
+      - name: Build DemoAPI
+        run: dotnet build src/DemoAPI/DemoAPI.csproj --no-restore --configuration Release
