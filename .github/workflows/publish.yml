@@ -23,8 +23,10 @@ jobs:
       - name: Build solution
         run: dotnet build Throttlr.Api.RateLimit.sln --configuration Release --no-restore
 
+        # ${{ github.ref_name#v }} strips the leading v we add in the release on github ex. v1.0.0.
+        # So a GitHub tag v1.0.0 becomes 1.0.0 for NuGet.
       - name: Pack NuGet package
-        run: dotnet pack src/Throttlr.Api.RateLimit/RateLimit.Throttlr.csproj --configuration Release -o ./artifacts /p:PackageVersion=${{ github.ref_name }}
+        run: dotnet pack src/Throttlr.Api.RateLimit/RateLimit.Throttlr.csproj --configuration Release -o ./artifacts /p:PackageVersion=${{ github.ref_name#v }}
 
       - name: Publish to NuGet
         run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
