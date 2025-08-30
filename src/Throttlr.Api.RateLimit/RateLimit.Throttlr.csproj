@@ -3,7 +3,61 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
+    <Title>RateLimit.Throttlr</Title>
+    <Authors>Raphael Anyanwu</Authors>
+    <Description>A flexible and customizable rate limiting library for modern and legacy .NET APIs.</Description>
+    <PackageProjectUrl>https://github.com/selfmadecode/Throttlr.Api.RateLimit</PackageProjectUrl>
+    <PackageReadmeFile>ReadMe.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/selfmadecode/Throttlr.Api.RateLimit</RepositoryUrl>
+    <PackageTags>rate-limit;rate-limiting;aspnetcore;webapi;token-bucket;sliding-window;fixed-window; rate limit; rate limiter; api throttling</PackageTags>
+    <PackageReleaseNotes>Release Notes — RateLimit.Throttlr
+
+Version: 1.0.0
+Release Date: 2025-08-30
+
+Overview
+
+RateLimit.Throttlr is a flexible and customizable rate limiting library for modern and legacy .NET APIs. This release introduces core functionality for controlling API request rates using multiple algorithms, with easy integration into ASP.NET Core projects.
+
+Features
+Flexible rate limiting algorithms
+Fixed Window
+Sliding Window
+Token Bucket
+
+Customizable policies
+Set maximum requests per interval
+Define time windows
+Support for custom partition keys (e.g., IP address)
+
+Middleware integration
+Easy registration via ASP.NET Core DI
+Automatic HTTP 429 response when limits are exceeded
+
+Standard headers
+X-RateLimit-Limit – allowed requests
+X-RateLimit-Remaining – remaining requests in the current window
+X-RateLimit-Reset – window reset timestamp
+Retry-After – seconds before next allowed request</PackageReleaseNotes>
+    <PackageIcon>RateLimit.Throttlr-logo.png</PackageIcon>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Version>1.0.0</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\RateLimit.Throttlr-logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\ReadMe.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
