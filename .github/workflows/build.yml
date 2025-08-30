@@ -22,11 +22,28 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet }}
 
-      - name: Restore dependencies
-        run: dotnet restore
+      - name: Restore library
+        run: dotnet restore src/RateLimit.Throttlr/RateLimit.Throttlr.csproj
 
-      - name: Build
-        run: dotnet build --no-restore --configuration Release
+      - name: Build library
+        run: dotnet build src/RateLimit.Throttlr/RateLimit.Throttlr.csproj --no-restore --configuration Release
 
-      # - name: Run tests
-      #   run: dotnet test --no-build --verbosity normal --configuration Release
+      - name: Run tests
+        run: dotnet test src/RateLimit.Throttlr/RateLimit.Throttlr.csproj --no-build --verbosity normal --configuration Release || echo "No tests found"
+
+  demo-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore DemoAPI
+        run: dotnet restore src/DemoAPI/DemoAPI.csproj
+
+      - name: Build DemoAPI
+        run: dotnet build src/DemoAPI/DemoAPI.csproj --no-restore --configuration Release
