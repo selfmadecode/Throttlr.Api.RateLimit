@@ -1,11 +1,10 @@
-# RateLimit.Throttlr
+﻿# RateLimit.Throttlr
 
 [![NuGet Version](https://img.shields.io/nuget/v/RateLimit.Throttlr.svg?style=flat&logo=nuget)](https://www.nuget.org/packages/RateLimit.Throttlr)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/RateLimit.Throttlr.svg?style=flat&logo=nuget)](https://www.nuget.org/packages/RateLimit.Throttlr)
 [![License](https://img.shields.io/github/license/selfmadecode/Throttlr.Api.RateLimit.svg?style=flat)](LICENSE)
 [![Build](https://img.shields.io/github/actions/workflow/status/selfmadecode/Throttlr.Api.RateLimit/build.yml?branch=main&style=flat&logo=github)](https://github.com/selfmadecode/Throttlr.Api.RateLimit/actions)
-[![.NET Standard](https://img.shields.io/badge/.NET%20Standard-2.1-blue)](https://learn.microsoft.com/en-us/dotnet/standard/net-standard?tabs=net-standard-2-1)
-[![Can be used by .NET](https://img.shields.io/badge/Can%20be%20used%20by-.NET%205%2C%206%2C%207%2C%208-blueviolet?logo=dot-net)](https://dotnet.microsoft.com/)
+[![.NET ≥ 2.1](https://img.shields.io/badge/.NET-%E2%89%A52.1-512BD4?logo=dot-net&style=flat)](https://dotnet.microsoft.com/)
 [![GitHub issues](https://img.shields.io/github/issues/selfmadecode/Throttlr.Api.RateLimit.svg?style=flat)](https://github.com/selfmadecode/Throttlr.Api.RateLimit/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://github.com/selfmadecode/Throttlr.Api.RateLimit/pulls)
 
