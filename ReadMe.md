@@ -4,6 +4,10 @@
 [![NuGet Downloads](https://img.shields.io/nuget/dt/RateLimit.Throttlr.svg?style=flat&logo=nuget)](https://www.nuget.org/packages/RateLimit.Throttlr)
 [![License](https://img.shields.io/github/license/selfmadecode/Throttlr.Api.RateLimit.svg?style=flat)](LICENSE)
 [![Build](https://img.shields.io/github/actions/workflow/status/selfmadecode/Throttlr.Api.RateLimit/build.yml?branch=main&style=flat&logo=github)](https://github.com/selfmadecode/Throttlr.Api.RateLimit/actions)
+![.NET](https://img.shields.io/badge/.NET-6%2C%207%2C%208-blue)
+[![GitHub issues](https://img.shields.io/github/issues/selfmadecode/Throttlr.Api.RateLimit.svg?style=flat)](https://github.com/selfmadecode/Throttlr.Api.RateLimit/issues)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://github.com/selfmadecode/Throttlr.Api.RateLimit/pulls)
+[![Docs](https://img.shields.io/badge/docs-read-blue?style=flat)](https://selfmadecode.github.io/Throttlr.Api.RateLimit/)
 
 A flexible and customizable **rate limiting library** for modern and legacy **.NET APIs**.
 
