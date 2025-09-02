@@ -18,12 +18,6 @@ namespace RateLimit.Throttlr.Core
         private readonly ISystemClock _clock;
         private readonly RateLimitPolicy _policy;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FixedWindowRateLimiter"/> class.
-        /// </summary>
-        /// <param name="store">Backing store for counters.</param>
-        /// <param name="clock">Clock abstraction for testability.</param>
-        /// <param name="policy">Rate limit policy definition.</param>
         public FixedWindowRateLimiter(
             IRateLimitStore store,
             ISystemClock clock,
