@@ -2,11 +2,11 @@
 
 namespace RateLimit.Throttlr.Core
 {
+    /// <summary>
+    /// Represents the result of a rate limit check.
+    /// </summary>
     public sealed class RateLimitResult
-    {
-        /// <summary>
-        /// Represents the result of a rate limit check.
-        /// </summary>
+    {        
         private RateLimitResult(bool isAllowed, int? retryAfterSeconds = null)
         {
             IsAllowed = isAllowed;

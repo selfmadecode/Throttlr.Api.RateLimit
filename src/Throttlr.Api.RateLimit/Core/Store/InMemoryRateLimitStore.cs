@@ -13,10 +13,7 @@ namespace RateLimit.Throttlr.Core.Store
     internal class InMemoryRateLimitStore : IRateLimitStore
     {
         private readonly ConcurrentDictionary<string, RateLimitCounter> _counters;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InMemoryRateLimitStore"/> class.
-        /// </summary>
+               
         public InMemoryRateLimitStore()
         {
             _counters = new ConcurrentDictionary<string, RateLimitCounter>(

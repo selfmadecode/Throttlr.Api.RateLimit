@@ -18,9 +18,6 @@ namespace RateLimit.Throttlr.Core
         private readonly ISystemClock _clock;
         private readonly RateLimitPolicy _policy;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SlidingWindowRateLimiter"/> class.
-        /// </summary>
         public SlidingWindowRateLimiter(
             IRateLimitStore store,
             ISystemClock clock,
@@ -31,7 +28,6 @@ namespace RateLimit.Throttlr.Core
             _policy = policy ?? throw new ArgumentNullException(nameof(policy));
         }
 
-        /// <inheritdoc />
         /// <inheritdoc />
         public async Task<RateLimitResult> ShouldLimitAsync(
             string key,
