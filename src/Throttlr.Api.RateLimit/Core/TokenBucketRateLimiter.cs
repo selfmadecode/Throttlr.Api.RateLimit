@@ -20,12 +20,6 @@ namespace RateLimit.Throttlr.Core
         private readonly int _capacity;
         private readonly double _tokensPerSecond;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TokenBucketRateLimiter"/> class.
-        /// </summary>
-        /// <param name="store">The rate limit store.</param>
-        /// <param name="policy">The rate limit policy.</param>
-        /// <param name="clock">The system clock.</param>
         public TokenBucketRateLimiter(
             IRateLimitStore store,
             ISystemClock clock,
