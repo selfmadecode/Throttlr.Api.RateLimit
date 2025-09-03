@@ -6,10 +6,6 @@ namespace DemoAPI.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        public WeatherForecastController()
-        {
-        }
-
         [HttpGet("hello")]
         public IActionResult GetHello()
         {
