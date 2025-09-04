@@ -4,7 +4,7 @@ namespace DemoAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class HomeController : ControllerBase
     {
         [HttpGet("hello")]
         public IActionResult GetHello()
