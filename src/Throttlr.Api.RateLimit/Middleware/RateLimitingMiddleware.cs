@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using RateLimit.Throttlr.Core;
 
 namespace RateLimit.Throttlr.Middleware
 {
@@ -15,6 +11,11 @@ namespace RateLimit.Throttlr.Middleware
     {
         private readonly RequestDelegate _next;
         private readonly IRateLimiter _rateLimiter;
+
+        private const string RetryAfter = "Retry-After";
+        private const string RateLimitLimit = "X-RateLimit-Limit";
+        private const string RateLimitRemaining = "X-RateLimit-Remaining";
+        private const string RateLimitReset = "X-RateLimit-Reset";
 
         public RateLimitingMiddleware(RequestDelegate next, IRateLimiter rateLimiter)
         {
@@ -33,19 +34,19 @@ namespace RateLimit.Throttlr.Middleware
                 context.Response.StatusCode = StatusCodes.Status429TooManyRequests;
 
                 // Add standard rate limit headers
-                context.Response.Headers["Retry-After"] = ((int)result.RetryAfter.Value.TotalSeconds).ToString();
-                context.Response.Headers["X-RateLimit-Limit"] = _rateLimiter.GetLimit().ToString();
-                context.Response.Headers["X-RateLimit-Remaining"] = result.Remaining.ToString();
-                context.Response.Headers["X-RateLimit-Reset"] = result.Reset?.ToUnixTimeSeconds().ToString();
+                context.Response.Headers[RetryAfter] = ((int)result.RetryAfter.Value.TotalSeconds).ToString();
+                context.Response.Headers[RateLimitLimit] = _rateLimiter.GetLimit().ToString();
+                context.Response.Headers[RateLimitRemaining] = result.Remaining.ToString();
+                context.Response.Headers[RateLimitReset] = result.Reset?.ToUnixTimeSeconds().ToString();
 
                 await context.Response.WriteAsync("Too Many Requests");
                 return;
             }
 
             // Attach useful headers on success
-            context.Response.Headers["X-RateLimit-Limit"] = _rateLimiter.GetLimit().ToString();
-            context.Response.Headers["X-RateLimit-Remaining"] = result.Remaining.ToString();
-            context.Response.Headers["X-RateLimit-Reset"] = result.Reset?.ToUnixTimeSeconds().ToString();
+            context.Response.Headers[RateLimitLimit] = _rateLimiter.GetLimit().ToString();
+            context.Response.Headers[RateLimitRemaining] = result.Remaining.ToString();
+            context.Response.Headers[RateLimitReset] = result.Reset?.ToUnixTimeSeconds().ToString();
 
             await _next(context);
         }
