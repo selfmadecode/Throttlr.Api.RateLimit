@@ -56,41 +56,5 @@ namespace RateLimit.Throttlr.Middleware
             // Default: use IP address. Could be swapped for API key / user ID.
             return context.Connection.RemoteIpAddress?.ToString() ?? "unknown";
         }
-
-        ///// <summary>
-        ///// Processes the HTTP request, applying rate limiting.
-        ///// </summary>
-        //public async Task InvokeAsync(HttpContext context)
-        //{
-        //    var requestKey = context.Connection.RemoteIpAddress?.ToString() ?? "unknown";
-
-        //    var rateLimitContext = new RateLimitContext(requestKey);
-        //    var result = await _rateLimiter.CheckAsync(rateLimitContext, context.RequestAborted);
-
-        //    if (!result.Allowed)
-        //    {
-        //        context.Response.StatusCode = StatusCodes.Status429TooManyRequests;
-
-        //        if (result.RetryAfter.HasValue)
-        //        {
-        //            context.Response.Headers["Retry-After"] =
-        //                ((int)result.RetryAfter.Value.TotalSeconds).ToString();
-        //        }
-
-        //        if (result.Reset.HasValue)
-        //        {
-        //            context.Response.Headers["X-RateLimit-Reset"] =
-        //                ((int)result.Reset.Value.TotalSeconds).ToString();
-        //        }
-
-        //        context.Response.Headers["X-RateLimit-Remaining"] = "0";
-        //        return;
-        //    }
-
-        //    context.Response.Headers["X-RateLimit-Remaining"] =
-        //        result.Remaining?.ToString() ?? "unknown";
-
-        //    await _next(context);
-        //}
     }
 }
